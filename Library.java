@@ -1,24 +1,25 @@
 package main;
-import main.Item;
 import java.util.ArrayList;
 public class Library {
 
+	//Attributes
 	private int itemID;
 	private int memberID;
-	
 	private ArrayList<Item> items = new ArrayList<>();
 	private ArrayList<Member> members = new ArrayList<>();
 	
+	//Constructors
 	public Library() {
 		super();
 	}
-	
+	//Overloaded Constructor
 	public Library(int itemID, int memberID) {
 		super();
 		this.itemID = itemID;
 		this.memberID = memberID;
 	}
 
+	//Methods
 	public boolean addItem(Item item) {
 		item.setID(this.itemID++);
 		return this.items.add(item);
@@ -36,15 +37,13 @@ public class Library {
 	public boolean removeById(int id) {
 		ArrayList<Item> modList = new ArrayList<>();
 		for (Item obj : items) {
-			(if obj.getId() != id){
-				//i know id doesnt belong to library
+			//compare id of items to input id
+			if (obj.getId() == id){
 				modList.add(obj);
-				return true;
-			}else{
-				return false;
 			}
 		}
-		items = modList;
+		//remove all items in modList from items
+		return this.items.removeAll(modList);
 	}
 	
 	
