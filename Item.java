@@ -6,10 +6,10 @@ public abstract class Item {
 	private String name;
 	private boolean available = true;
 	
-	public Item(String name) {
+	public Item(String name, int id) {
 		super();
-		this.id = id++;
 		this.name = name;
+		this.id = id; //id++
 	}
 	
 	public int getId() {
@@ -30,5 +30,9 @@ public abstract class Item {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

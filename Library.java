@@ -46,6 +46,26 @@ public class Library {
 		return this.items.removeAll(modList);
 	}
 	
+	public boolean checkIn(int itemID, int memberID) {
+		//itemsOut array from Member
+		//take in item to be returned
+		//check if its not available
+		//add back to list
+		for(Item obj : items) {
+			if(obj.isAvailable()) {
+				return false;
+			}else {
+				obj.setAvailable(true);
+				items.add(obj);
+				return true;
+			}
+		}
+		return false;
+	}
 	
+	@Override
+	public String toString() {
+		return "Members = " + members + " , Items = " + items + ", Class : " + this.getClass().getName();
+	}
 	
-}
+	}
